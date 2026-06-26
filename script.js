@@ -532,3 +532,49 @@ window.addEventListener("load",()=>{
     },3000);
 
 });
+const texts = [
+    "Connect with Alumni.",
+    "Build Your Network.",
+    "Find Mentors.",
+    "Discover Opportunities."
+];
+
+let textIndex = 0;
+let charIndex = 0;
+
+const target = document.getElementById("typewriter");
+
+function type() {
+
+    if (charIndex < texts[textIndex].length) {
+
+        target.textContent += texts[textIndex].charAt(charIndex);
+        charIndex++;
+
+        setTimeout(type, 70);
+
+    } else {
+
+        setTimeout(erase, 1500);
+
+    }
+}
+
+function erase() {
+
+    if (charIndex > 0) {
+
+        target.textContent = texts[textIndex].substring(0, charIndex - 1);
+        charIndex--;
+
+        setTimeout(erase, 40);
+
+    } else {
+
+        textIndex = (textIndex + 1) % texts.length;
+        setTimeout(type, 300);
+
+    }
+}
+
+window.addEventListener("load", type);

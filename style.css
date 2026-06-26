@@ -1020,3 +1020,19 @@ text-align:center;
     }
 
 }
+.hero-title{
+    font-size:3rem;
+    font-weight:700;
+    color:#fff;
+}
+
+.cursor{
+    color:#00D4AA;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0;
+    }
+}
