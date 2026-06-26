@@ -111,6 +111,32 @@ const DATA=[
    skills:['Engineering Management','System Design','FinTech','Hiring','OKRs'],
    tl:[{yr:'2022–Present',role:'Director of Engineering',co:'Razorpay'},{yr:'2019–2022',role:'Engineering Manager',co:'Razorpay'},{yr:'2017–2019',role:'Software Engineer',co:'Amazon'}]}
 ];
+const EVENTS = [
+{
+    title: "Tech Alumni Mixer",
+    domain: "Tech",
+    date: "12 July",
+    location: "Bangalore"
+},
+{
+    title: "AI Research Symposium",
+    domain: "Research",
+    date: "25 July",
+    location: "Online"
+},
+{
+    title: "Startup Pitch Night",
+    domain: "Startup",
+    date: "3 August",
+    location: "Kochi"
+},
+{
+    title: "Finance Networking Meet",
+    domain: "Finance",
+    date: "18 August",
+    location: "Mumbai"
+}
+];
 const currentUser = DATA[0];
 function getRecommendations(){
 
@@ -227,7 +253,7 @@ function setDomain(d,el){
 function loadMore(){visibleCount+=4;renderGrid()}
 renderGrid();
 renderRecommendations();
-
+renderSuggestedEvents();
 /* ════════════════════════════════════
    PROFILE MODAL
 ════════════════════════════════════ */
@@ -405,5 +431,37 @@ function getRecommendations(){
         })
         .sort((a,b)=>b.score-a.score)
         .slice(0,3);
+
+}
+
+function renderSuggestedEvents(){
+
+    const container = document.getElementById("suggestedEvents");
+
+    const events = EVENTS.filter(event =>
+        event.domain === currentUser.domain
+    );
+
+    container.innerHTML = "";
+
+    events.forEach(event => {
+
+        container.innerHTML += `
+        <div class="event-suggestion">
+
+            <div>
+                <h4>${event.title}</h4>
+                <p>${event.date} • ${event.location}</p>
+            </div>
+
+            <button class="connect-btn"
+                onclick="showToast('Registered for ${event.title}! 🎉')">
+                Register
+            </button>
+
+        </div>
+        `;
+
+    });
 
 }

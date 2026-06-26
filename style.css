@@ -843,3 +843,32 @@ text-align:center;
     border-radius:8px;
     cursor:pointer;
 }
+.suggested-events-card{
+    background:#fff;
+    padding:20px;
+    border-radius:16px;
+    margin-top:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.event-suggestion{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+
+.event-suggestion:last-child{
+    border-bottom:none;
+}
+
+.event-suggestion h4{
+    margin:0;
+}
+
+.event-suggestion p{
+    margin:4px 0 0;
+    color:#777;
+    font-size:14px;
+}
