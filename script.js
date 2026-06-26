@@ -381,17 +381,3 @@ const length=326;
 
 circle.style.strokeDashoffset=
 length-(percent/100)*length;
-const recommendations=[
-{
-name:"Rahul Menon",
-company:"Google",
-batch:"2021",
-mutual:16
-},
-{
-name:"Priya Sharma",
-company:"Microsoft",
-batch:"2020",
-mutual:10
-}
-];
