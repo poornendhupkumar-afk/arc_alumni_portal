@@ -111,7 +111,55 @@ const DATA=[
    skills:['Engineering Management','System Design','FinTech','Hiring','OKRs'],
    tl:[{yr:'2022–Present',role:'Director of Engineering',co:'Razorpay'},{yr:'2019–2022',role:'Engineering Manager',co:'Razorpay'},{yr:'2017–2019',role:'Software Engineer',co:'Amazon'}]}
 ];
+const currentUser = DATA[0];
+function getRecommendations(){
 
+    return DATA.filter(alumni=>{
+
+        return alumni.id!==currentUser.id &&
+
+               alumni.domain===currentUser.domain;
+
+    }).slice(0,3);
+
+}
+function renderRecommendations(){
+
+    const list=document.getElementById("recommendList");
+
+    const recs=getRecommendations();
+
+    list.innerHTML="";
+
+    recs.forEach(person=>{
+
+        list.innerHTML+=`
+
+        <div class="recommend-item">
+
+            <div class="rec-info">
+
+                <h4>${person.name}</h4>
+
+                <p>${person.role}</p>
+
+                <p>Batch ${person.batch}</p>
+
+            </div>
+
+            <button class="connect-btn">
+
+                Connect
+
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+}
 let activeFilter='all', activeDomain='all', searchQ='', visibleCount=8;
 
 function getFiltered(){
@@ -178,6 +226,7 @@ function setDomain(d,el){
 }
 function loadMore(){visibleCount+=4;renderGrid()}
 renderGrid();
+renderRecommendations();
 
 /* ════════════════════════════════════
    PROFILE MODAL
@@ -324,3 +373,25 @@ const barObs=new IntersectionObserver(entries=>{
   });
 },{threshold:0.4});
 document.querySelectorAll('.event-card').forEach(c=>barObs.observe(c));
+const percent=82;
+
+const circle=document.querySelector(".ring-fill");
+
+const length=326;
+
+circle.style.strokeDashoffset=
+length-(percent/100)*length;
+const recommendations=[
+{
+name:"Rahul Menon",
+company:"Google",
+batch:"2021",
+mutual:16
+},
+{
+name:"Priya Sharma",
+company:"Microsoft",
+batch:"2020",
+mutual:10
+}
+];

@@ -771,3 +771,75 @@
       .scroll-line{animation:none}
       .chip-dot{animation:none}
     }
+    .profile-progress{
+position:relative;
+width:120px;
+height:120px;
+margin:20px auto;
+}
+
+.progress-ring{
+transform:rotate(-90deg);
+}
+
+.ring-bg{
+fill:none;
+stroke:#ddd;
+stroke-width:10;
+}
+
+.ring-fill{
+fill:none;
+stroke:#00D4AA;
+stroke-width:10;
+stroke-linecap:round;
+stroke-dasharray:326;
+stroke-dashoffset:326;
+transition:1.2s;
+}
+
+.ring-text{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+}
+.recommend-card{
+    background:var(--white);
+    border-radius:16px;
+    padding:20px;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+}
+
+.recommend-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+}
+
+.recommend-item:last-child{
+    border-bottom:none;
+}
+
+.rec-info h4{
+    margin:0;
+}
+
+.rec-info p{
+    margin:2px 0;
+    font-size:13px;
+    color:gray;
+}
+
+.connect-btn{
+    background:#00D4AA;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+}
