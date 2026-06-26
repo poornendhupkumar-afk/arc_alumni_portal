@@ -143,17 +143,7 @@ const EVENTS = [
 }
 ];
 const currentUser = DATA[0];
-function getRecommendations(){
 
-    return DATA.filter(alumni=>{
-
-        return alumni.id!==currentUser.id &&
-
-               alumni.domain===currentUser.domain;
-
-    }).slice(0,3);
-
-}
 function renderRecommendations(){
 
     const list=document.getElementById("recommendList");
@@ -172,10 +162,8 @@ function renderRecommendations(){
 
                 <h4>${person.name}</h4>
 
-                <p>${person.role}</p>
-
-                <p>Batch ${person.batch}</p>
-
+               <p>${person.role}</p>
+<p>⭐ Match Score: ${person.score}</p>
             </div>
 
             <button class="connect-btn">
