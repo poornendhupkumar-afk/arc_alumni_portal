@@ -381,3 +381,29 @@ const length=326;
 
 circle.style.strokeDashoffset=
 length-(percent/100)*length;
+
+
+function getRecommendations(){
+
+    return DATA
+        .filter(a=>a.id!==currentUser.id)
+        .map(a=>{
+
+            let score=0;
+
+            if(a.domain===currentUser.domain)
+                score+=5;
+
+            if(a.batch===currentUser.batch)
+                score+=4;
+
+            if(a.dept===currentUser.dept)
+                score+=3;
+
+            return {...a,score};
+
+        })
+        .sort((a,b)=>b.score-a.score)
+        .slice(0,3);
+
+}
