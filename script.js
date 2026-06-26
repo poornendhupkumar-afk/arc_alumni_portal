@@ -1,6 +1,9 @@
 (()=>{
-  const c=document.getElementById('c-canvas'),ctx=c.getContext('2d');
-    const c=document.getElementById('loaderCanvas'),ctx=c.getContext('2d');
+ const heroCanvas = document.getElementById("c-canvas");
+const heroCtx = heroCanvas.getContext("2d");
+
+const loaderCanvas = document.getElementById("loaderCanvas");
+const loaderCtx = loaderCanvas.getContext("2d");
 
   let W,H,nodes=[],mx=-999,my=-999;
   const N=60,CD=155,MD=110;
