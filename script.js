@@ -1,9 +1,52 @@
-(()=>{
- const heroCanvas = document.getElementById("c-canvas");
-const heroCtx = heroCanvas.getContext("2d");
 
-const loaderCanvas = document.getElementById("loaderCanvas");
-const loaderCtx = loaderCanvas.getContext("2d");
+
+(() => {
+    const heroCanvas = document.getElementById("c-canvas");
+    const heroCtx = heroCanvas.getContext("2d");
+
+    const loaderCanvas = document.getElementById("loaderCanvas");
+    const loaderCtx = loaderCanvas.getContext("2d");
+
+    const c = heroCanvas;
+    const ctx = heroCtx;
+
+    // rest of your code...
+
+
+function resizeLoader(){
+    loaderCanvas.width = loaderCanvas.offsetWidth;
+    loaderCanvas.height = loaderCanvas.offsetHeight;
+}
+
+resizeLoader();
+window.addEventListener("resize", resizeLoader);
+
+let angle = 0;
+
+function animateLoader(){
+
+    loaderCtx.clearRect(0,0,loaderCanvas.width,loaderCanvas.height);
+
+    loaderCtx.strokeStyle = "#00D4AA";
+    loaderCtx.lineWidth = 5;
+
+    loaderCtx.beginPath();
+    loaderCtx.arc(
+        loaderCanvas.width/2,
+        loaderCanvas.height/2,
+        40,
+        angle,
+        angle + Math.PI*1.5
+    );
+    loaderCtx.stroke();
+
+    angle += 0.05;
+
+    requestAnimationFrame(animateLoader);
+}
+
+animateLoader();
+
 
   let W,H,nodes=[],mx=-999,my=-999;
   const N=60,CD=155,MD=110;
