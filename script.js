@@ -1,5 +1,7 @@
 (()=>{
   const c=document.getElementById('c-canvas'),ctx=c.getContext('2d');
+    const c=document.getElementById('loaderCanvas'),ctx=c.getContext('2d');
+
   let W,H,nodes=[],mx=-999,my=-999;
   const N=60,CD=155,MD=110;
   function rs(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight}
@@ -465,18 +467,34 @@ function renderSuggestedEvents(){
     });
 
 }
-/* ==========================
-   PAGE LOADER
-========================== */
+const title = "ARC Alumni Portal";
 
-window.addEventListener("load", () => {
+let i = 0;
 
-    const loader = document.getElementById("loader");
+function typeWriter(){
 
-    setTimeout(() => {
+    if(i < title.length){
 
-        loader.classList.add("hide");
+        document.getElementById("loaderTitle").textContent += title.charAt(i);
 
-    }, 1200);
+        i++;
+
+        setTimeout(typeWriter,90);
+
+
+    }
+
+}
+
+typeWriter();
+window.addEventListener("load",()=>{
+
+    setTimeout(()=>{
+
+        document
+        .getElementById("loader")
+        .classList.add("loader-hide");
+
+    },3000);
 
 });
